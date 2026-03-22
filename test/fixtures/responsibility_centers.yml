@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resp_center_desc: MyString
+  zone: 1
+  responsible: MyString
+
+two:
+  resp_center_desc: MyString
+  zone: 1
+  responsible: MyString

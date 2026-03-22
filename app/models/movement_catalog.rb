@@ -1,0 +1,2 @@
+class MovementCatalog < ApplicationRecord
+end

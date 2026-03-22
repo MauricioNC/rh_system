@@ -1,0 +1,2 @@
+class ResponsibilityCenter < ApplicationRecord
+end

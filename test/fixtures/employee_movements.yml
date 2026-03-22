@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creation_date: 2026-03-22
+  description: MyString
+  employee: one
+  employment: one
+  movement_catalog: one
+  user: one
+
+two:
+  creation_date: 2026-03-22
+  description: MyString
+  employee: two
+  employment: two
+  movement_catalog: two
+  user: two

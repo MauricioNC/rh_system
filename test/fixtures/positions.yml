@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position_desc: MyString
+  salary: 9.99
+  zone: 1
+
+two:
+  position_desc: MyString
+  salary: 9.99
+  zone: 1
