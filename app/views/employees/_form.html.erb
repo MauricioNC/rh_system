@@ -1,0 +1,46 @@
+<%= form_with model: employee do |form| %>
+  <div class="flex flex-row items-center justify-center">
+    <div>
+      <%= form.label :name, "Nombre(s)" %>
+      <%= form.text_field :name, class: "border border-gray-700" %>
+    </div>
+    <div>
+      <%= form.label :father_last_name %>
+      <%= form.text_field :father_last_name, class: "border border-gray-700" %>
+    </div>
+    <div>
+      <%= form.label :mother_last_name %>
+      <%= form.text_field :mother_last_name, class: "border border-gray-700" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.label :birth_date %>
+    <%= form.date_field :birth_date, class: "border border-gray-700" %>
+  </div>
+  <div>
+    <%= form.label :curp, "CURP" %>
+    <%= form.text_field :curp, class: "border border-gray-700" %>
+  </div>
+  <div>
+    <%= form.label :rfc, "RFC" %>
+    <%= form.text_field :rfc, class: "border border-gray-700" %>
+  </div>
+  <div>
+    <%= form.label :gender, "Genero" %>
+    <%= form.text_field :gender, class: "border border-gray-700" %>
+  </div>
+  <div>
+    <%= form.label :marital_status, "Estado Civil" %>
+    <%= form.select :marital_status, options_for_select([['Soltero', 'soltero'], ['Casado', 'casado'], ['Divorciado', 'divorciado'], ['Viudo', 'viudo'], ['Union Libre', 'union_libre']]), class: "border border-gray-700" %>
+  </div>
+  <div>
+    <%= form.label :nationality, "Nacionalidad" %>
+    <%= form.text_field :nationality, class: "border border-gray-700" %>
+  </div>
+  <div>
+    <%= form.label :address, "Domicilio" %>
+    <%= form.text_field :address, placeholder: "Calle y numero, colonia, codigo postal, municipio, colonia", class: "w-[480px] border border-gray-700" %>
+  </div>
+  <%= form.submit "Guardar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>

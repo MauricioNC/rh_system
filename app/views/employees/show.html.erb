@@ -1,0 +1,34 @@
+<div>
+  <p>
+    <strong>NOMBRE:</strong>
+    <%= "#{@employee.name} #{@employee.father_last_name} #{@employee.mother_last_name}" %>
+  </p>
+  <p>
+    <strong>FECHA DE NACIMIENTO:</strong>
+    <%= @employee.birth_date.to_date.strftime("%d/%m/%Y") %>
+  </p>
+  <p>
+    <strong>CURP:</strong>
+    <%= @employee.curp %>
+  </p>
+  <p>
+    <strong>RFC:</strong>
+    <%= @employee.rfc %>
+  </p>
+  <p>
+    <strong>GENERO:</strong>
+    <%= @employee.gender %>
+  </p>
+  <p>
+    <strong>ESTADO CIVIL:</strong>
+    <%= @employee.marital_status %>
+  </p>
+  <p>
+    <strong>NACIONALIDAD:</strong>
+    <%= @employee.nationality %>
+  </p>
+  <p>
+    <strong>DIRECCION:</strong>
+    <%= @employee.address %>
+  </p>
+</div>
