@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_01_051442) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_03_065456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "adscription_unities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "adsc_key"
     t.string "adsc_unity_desc", null: false
     t.datetime "created_at", null: false
-    t.uuid "responsibility_center_id", null: false
+    t.uuid "responsibility_center_id"
     t.datetime "updated_at", null: false
     t.index ["responsibility_center_id"], name: "index_adscription_unities_on_responsibility_center_id"
   end
@@ -73,7 +74,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_01_051442) do
     t.uuid "employee_type_id", null: false
     t.date "end_date"
     t.uuid "position_id", null: false
-    t.uuid "responsibility_center_id", null: false
+    t.uuid "responsibility_center_id"
     t.date "start_date", null: false
     t.datetime "updated_at", null: false
     t.index ["contract_type_id"], name: "index_employments_on_contract_type_id"
@@ -108,7 +109,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_01_051442) do
   end
 
   create_table "responsibility_centers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "#<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition"
     t.datetime "created_at", null: false
     t.string "resp_center_desc", null: false
     t.string "responsible"
