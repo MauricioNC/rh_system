@@ -1,6 +1,21 @@
 class EmployeesController < ApplicationController
+  def index
+    @employees = Employee.all
+    render json: @employees.to_json
+  end
+
   def new
     @employee = Employee.new
+  end
+
+  def find_by_rfc
+    @employee = Employee.find_by(rfc: params[:rfc])
+
+    if @employee
+      render json: @employee.to_json
+    else
+      render json: { error: "Empleado no encontrado" }, status: :not_found
+    end
   end
 
   def show

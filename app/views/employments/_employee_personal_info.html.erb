@@ -1,0 +1,56 @@
+<fieldset class="border border-gray-400">
+  <legend>Datos personales</legend>
+
+  <div>
+    <%= f.label :rfc, "RFC" %>
+    <%= f.text_field :rfc, class: "border border-gray-500", data: { employment_form_target: "rfc", action: "keydown.tab->employment-form#fetch_employee" } %>
+  </div>
+
+  <div>
+    <%= f.label :curp, "CURP" %>
+    <%= f.text_field :curp, class: "border border-gray-500", data: { employment_form_target: "curp" } %>
+  </div>
+
+  <div>
+    <div>
+      <%= f.label :name, "Nombre(s)" %>
+      <%= f.text_field :name, class: "border border-gray-500", data: { employment_form_target: "name" } %>
+    </div>
+
+    <div>
+      <%= f.label :father_last_name, "Apellido paterno" %>
+      <%= f.text_field :father_last_name, class: "border border-gray-500", data: { employment_form_target: "fatherLastName" } %>
+    </div>
+
+    <div>
+      <%= f.label :mother_last_name, "Apellido materno" %>
+      <%= f.text_field :mother_last_name, class: "border border-gray-500", data: { employment_form_target: "motherLastName" } %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :address, "Domicilio" %>
+    <%= f.text_field :address, class: "border border-gray-500 w-[710px]", data: { employment_form_target: "address" } %>
+  </div>
+  
+  <div>
+    <div>
+      <%= f.label :birth_date, "Fecha de nacimiento" %>
+      <%= f.text_field :birth_date, class: "border border-gray-500", data: { employment_form_target: "birthDate" } %>
+    </div>
+    <div>
+      <%= f.label :gender, "Genero" %>
+      <%= f.text_field :gender, class: "border border-gray-500", data: { employment_form_target: "gender" } %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :marital_status, "Estado civil" %>
+    <%= f.text_field :marital_status, class: "border border-gray-500", data: { employment_form_target: "maritalStatus" } %>
+  </div>
+
+  <div>
+    <%= f.label :nationality, "Nacionalidad" %>
+    <%= f.text_field :nationality, class: "border border-gray-500", data: { employment_form_target: "nationality" } %>
+  </div>
+</fieldset>

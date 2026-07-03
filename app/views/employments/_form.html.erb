@@ -1,0 +1,6 @@
+<%= form_with model: @employment, data: { controller: "employment-form" } do |f| %>
+  <%= render  "employee_personal_info", f: f %>
+  <%= render  "employee_employment_info", f: f %>
+
+  <%= f.submit "Crear empleado", class: "p-2 mt-2 bg-blue-600 text-white rounded-sm" %>
+<% end %>
