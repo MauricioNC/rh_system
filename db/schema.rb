@@ -1,4 +1,3 @@
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_03_065456) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_063343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -93,9 +92,19 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_03_065456) do
     t.index ["movement_number"], name: "index_movement_catalogs_on_movement_number", unique: true
   end
 
+  create_table "position_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.uuid "employee_id", null: false
+    t.uuid "position_id", null: false
+    t.uuid "position_salary_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_position_details_on_employee_id"
+    t.index ["position_id"], name: "index_position_details_on_position_id"
+    t.index ["position_salary_id"], name: "index_position_details_on_position_salary_id"
+  end
+
   create_table "position_salaries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.string "position_code", null: false
     t.decimal "salary", precision: 10, scale: 2, null: false
     t.datetime "updated_at", null: false
     t.string "zone", null: false
@@ -103,10 +112,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_03_065456) do
 
   create_table "positions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.uuid "details", null: false
+    t.string "position_code", null: false
     t.string "position_desc", null: false
     t.datetime "updated_at", null: false
-    t.index ["details"], name: "index_positions_on_details", unique: true
   end
 
   create_table "responsibility_centers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -140,5 +148,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_03_065456) do
   add_foreign_key "employments", "employees"
   add_foreign_key "employments", "positions"
   add_foreign_key "employments", "responsibility_centers"
-  add_foreign_key "positions", "position_salaries", column: "details"
+  add_foreign_key "position_details", "employees"
+  add_foreign_key "position_details", "position_salaries"
+  add_foreign_key "position_details", "positions"
 end
