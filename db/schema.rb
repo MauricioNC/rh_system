@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_063343) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_16_043532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -95,19 +95,19 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_063343) do
   create_table "position_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.uuid "employee_id", null: false
-    t.uuid "position_id", null: false
     t.uuid "position_salary_id", null: false
     t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_position_details_on_employee_id"
-    t.index ["position_id"], name: "index_position_details_on_position_id"
     t.index ["position_salary_id"], name: "index_position_details_on_position_salary_id"
   end
 
   create_table "position_salaries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.uuid "position_id", null: false
     t.decimal "salary", precision: 10, scale: 2, null: false
     t.datetime "updated_at", null: false
     t.string "zone", null: false
+    t.index ["position_id"], name: "index_position_salaries_on_position_id"
   end
 
   create_table "positions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -150,5 +150,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_063343) do
   add_foreign_key "employments", "responsibility_centers"
   add_foreign_key "position_details", "employees"
   add_foreign_key "position_details", "position_salaries"
-  add_foreign_key "position_details", "positions"
+  add_foreign_key "position_salaries", "positions"
 end
